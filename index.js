@@ -33,4 +33,8 @@ ReachedBottom.prototype._dispatchEvent = function ()
     this.element.dispatchEvent(new Event('reachedbottom'))
 }
 
-exports = ReachedBottom
+window.addEventListener('eventlisteneradded', e =>
+{
+    if (e.base.type === 'reachedbottom')
+        new ReachedBottom(e.base.target)
+})
